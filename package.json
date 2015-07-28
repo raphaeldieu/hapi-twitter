@@ -1,0 +1,28 @@
+{
+  "name": "hapi-twitter",
+  "version": "0.0.1",
+  "description": "wdi8 clone of twitter / lesson to learn backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaeldieu/hapi-twitter.git"
+  },
+  "keywords": [
+    "hapi",
+    "Bck-end",
+    "WDI"
+  ],
+  "author": "Raph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaeldieu/hapi-twitter/issues"
+  },
+  "homepage": "https://github.com/raphaeldieu/hapi-twitter#readme",
+  "dependencies": {
+    "hapi": "^8.8.0",
+    "hapi-mongodb": "^3.0.0"
+  }
+}
