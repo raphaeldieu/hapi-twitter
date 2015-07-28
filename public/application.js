@@ -13,7 +13,7 @@ Profile.prototype.addNewUser = function(user){
     },
     dataType: 'json',
     success: function(response){
-      console.log('new profile added' + name + username + email);
+      console.log('new profile added');
     }
   });
 };
