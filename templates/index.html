@@ -3,16 +3,33 @@
 <head>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="public/application.js"></script>
-  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="public/style.css">
+  <title>WDI8 Twitter Clone</title>
 </head>
 <body>
-  <h1>Twitter Clone</h1>
-  <form id="new_user_form">
-    <input label="name" placeholder="Name" id="name"></input>
-    <input label="username" placeholder="Username" id="username"></input>
-    <input label="email" placeholder="Email" id="email"></input>
-    <input label="password" placeholder="Password" id="password"></input>
-    <button id="submit_new_user">Submit</button>
-  </form>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <img src="/public/assets/img/twitterlogo.png">
+      </div>
+    </div>
+  </nav>
+  
+  
+  <div class="row" id="body">
+    <section class="container col-xs-4 col-xs-offset-4" id="sign_up">
+      <h1>Join the WDI8 community today.</h1>
+      <p>"Like Twitter, but better" - Jack Dorsey, CEO of Twitter, Inc.</p>
+      <form id="new_user_form">
+        <input placeholder="Name" id="name" ></input>
+        <input placeholder="Username" id="username"></input>
+        <input type="email" placeholder="Email" id="email"></input>
+        <input type="password" placeholder="Password" id="password"></input>
+        <button id="submit_new_user">Sign up !</button>
+        <p>By signing up, you agree to the <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Terms of Service</a> and <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Privacy Policy</a>.</p>
+      </form>
+    </section>
+  </div>
 </body>
 </html>

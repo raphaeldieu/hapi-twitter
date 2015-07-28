@@ -40,6 +40,10 @@ $('#submit_new_user').click(function(){
   profile.password = $('#password').val();
   profile.createUser(profile.name,profile.username,profile.email,profile.password);
   profile.addNewUser(profile.user);
+  $('#name').val("");
+  $('#username').val("");
+  $('#email').val("");
+  $('#password').val("");
 })
 
 })

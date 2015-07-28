@@ -1,0 +1,62 @@
+*{
+  font-style: Calibri;
+}
+
+#body{
+  background-color: white;
+}
+
+.navbar {
+  padding:10px;
+  margin-bottom: 0px;
+  background-color: #B3E5FC;
+}
+.navbar img{
+  width: 30%;
+  height: 30%;
+}
+.navbar a{
+  padding:0px;
+}
+h1{
+  text-align: center;
+}
+p{
+  text-align: center;
+}
+#sign_up{
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+#new_user_form{
+  text-align: center;
+  padding: 20px;
+}
+
+#new_user_form input{
+  padding: 10px 70px;
+  border-radius: 5px;
+  border: solid 1px #03A9F4;
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+  font-size: 20px;
+}
+
+#new_user_form button{
+  padding: 10px 70px;
+  border-radius: 5px;
+  width: 300px;
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+  background-color: #03A9F4;
+  color: white;
+  font-size: 20px;
+}
+
+
+
+
