@@ -14,6 +14,9 @@ Profile.prototype.addNewUser = function(user){
     dataType: 'json',
     success: function(response){
       console.log('new profile added');
+    },
+    error:function(response){
+      console.log(response);
     }
   });
 };

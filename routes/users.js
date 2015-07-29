@@ -14,10 +14,20 @@ exports.register = function(server, options, next){
         //   email:....,
         //   ....
         // }
+        // Check if there is an existing user with the same username or the same email address
+        var uniqUserQuery = { $or: [{username: user.username}, {email: user.email}]};
 
-        db.collection('users').insert(user, function(err, writeResult){
-          reply(writeResult);
+        db.collection('users').count(uniqUserQuery, function(err, userExist){
+          if (userExist) {
+            return reply('Error: Username already exist', err);
+          } 
+          else {
+            db.collection('users').insert(user, function(err, writeResult){
+            reply(writeResult);
+            });
+          }
         });
+
       }
     }
   ]);
