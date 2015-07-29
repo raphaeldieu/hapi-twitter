@@ -4,19 +4,24 @@ var Profile = function(){
   this.user = {};
 }
 
-Profile.prototype.addNewUser = function(user){
+Profile.prototype.signUp = function(user){
   $.ajax({
     method: 'POST',
-    url:'http://localhost:3000/users',
+    url:'users', //just the path without the "/"
     data: {
       user: user
     },
     dataType: 'json',
     success: function(response){
       console.log('new profile added');
+      $('#name').val("");
+      $('#username').val("");
+      $('#email').val("");
+      $('#password').val("");
     },
-    error:function(response){
+    error: function(response){
       console.log(response);
+      $('#error_message i').text('Sorry pal, username or email already exists');
     }
   });
 };
@@ -30,6 +35,8 @@ Profile.prototype.createUser = function(name,username,email,password) {
     }
 };
 
+
+
 var profile = new Profile();
 
 $('#new_user_form').submit(function(){
@@ -42,11 +49,7 @@ $('#submit_new_user').click(function(){
   profile.email = $('#email').val();
   profile.password = $('#password').val();
   profile.createUser(profile.name,profile.username,profile.email,profile.password);
-  profile.addNewUser(profile.user);
-  $('#name').val("");
-  $('#username').val("");
-  $('#email').val("");
-  $('#password').val("");
+  profile.signUp(profile.user);
 })
 
 })

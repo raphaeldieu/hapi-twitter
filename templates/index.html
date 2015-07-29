@@ -5,6 +5,7 @@
   <script type="text/javascript" src="public/application.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="public/style.css">
+
   <title>WDI8 Twitter Clone</title>
 </head>
 <body>
@@ -16,20 +17,33 @@
     </div>
   </nav>
    
-  <h1>Join the WDI8 community, today.</h1>
-  <p>"Like Twitter, but better" - Jack Dorsey, CEO of Twitter, Inc.</p>
+  
   
   <div class="row" id="body">
-    <section class="container col-xs-4 col-xs-offset-4" id="sign_up">
-      <form id="new_user_form">
-        <input placeholder="Name" id="name" ></input>
-        <input placeholder="Username" id="username"></input>
-        <input type="email" placeholder="Email" id="email"></input>
-        <input type="password" placeholder="Password" id="password"></input>
-        <button id="submit_new_user">Sign up !</button>
-        <p>By signing up, you agree to the <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Terms of Service</a> and <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Privacy Policy</a>.</p>
-      </form>
-    </section>
+    <div class="container-fluid col-xs-12">
+      <section class="container col-xs-5 col-xs-offset-1" id="sign_up">
+        <h1>Join the community, today.</h1>
+        <p id="error_message"><i></i></p>
+        <form class="form" id="new_user_form">
+          <input placeholder="Name" id="name" ></input>
+          <input placeholder="Username" id="username"></input>
+          <input placeholder="Email" id="email"></input>
+          <input type="password" placeholder="New password" id="password"></input>
+          <button id="submit_new_user">Sign up</button>
+          <p>By signing up, you agree to the <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Terms of Service</a> and <a href="http://lifehopeandtruth.com/bible/10-commandments/the-ten-commandments/10-commandments-list/" target="_blank">Privacy Policy</a>.</p>
+        </form>
+      </section>
+
+      <section class="container col-xs-5" id="sign_in">
+        <h2>Already member? Sign In.</h2>
+        <form class="form" id="signin_form">
+          <input placeholder="Username" id="username"></input>
+          <input type="password" placeholder="Password" id="password"></input>
+          <button id="sign_in_user">Sign in</button>
+
+        </form>
+      </section>
+    </div>
   </div>
 </body>
 </html>

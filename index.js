@@ -27,8 +27,17 @@ server.views({
 var plugins = [
   {register: require('./routes/static-pages.js')},
   {register: require('./routes/users.js')},
-//Require Mongo
-  {
+  {register: require('./routes/sessions.js')},
+  {//Reauire yar
+    register: require('yar'),
+    options: {
+      cookieOptions: {
+        password: 'asdasdasd',
+        isSecure: false // we are not going to use https, yet
+      }
+    }
+  },
+  {//Require Mongo
     register: require('hapi-mongodb') ,
     options: {
       url: 'mongodb://127.0.01:27017/hapi-twitter',
