@@ -1,4 +1,5 @@
 var Bcrypt = require('bcrypt');
+var Auth = require('./auth');
 
 exports.register = function(server, options, next){
 
@@ -46,7 +47,33 @@ exports.register = function(server, options, next){
         
         });//end db.collection.findOne
       }//end handler
-    }// end POST
+    },// end POST
+    
+    {
+      // check if we are authenticated / logged in
+      method:'GET',
+      path:'/authenticated',
+      handler: function(request,reply){
+        //usually we would write the logic here, but in this case we are =going to write it somewhere where we can use it agaiin for other functions
+        var callback = function(result){
+          reply(result);
+        };
+        Auth.authenticated(request, callback);
+      }
+    }
+
+
+
+
+    // {
+    //   method: 'DELETE',
+    //   path: '/sessions',
+    //   handler: function(request,reply){
+    //     var db = request.server.plugins['hapi-mongodb'].db;
+    //     var session = request.session.set('hapi_twitter_session', session);
+
+    //   }
+    // }
   ]);
 
   next();

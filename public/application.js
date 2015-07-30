@@ -1,15 +1,19 @@
 $(document).ready(function(){
 
 var Profile = function(){
-  this.user = {};
 }
 
-Profile.prototype.signUp = function(user){
+Profile.prototype.signUp = function(name,username,email,password){
   $.ajax({
     method: 'POST',
     url:'users', //just the path without the "/"
     data: {
-      user: user
+      user: {
+        name: name,
+        username: username,
+        email: email,
+        password: password
+      }
     },
     dataType: 'json',
     success: function(response){
@@ -26,30 +30,44 @@ Profile.prototype.signUp = function(user){
   });
 };
 
-Profile.prototype.createUser = function(name,username,email,password) {
-    this.user = {
-      name: name,
-      username: username,
-      email: email,
-      password: password
+Profile.prototype.signIn = function(username,password){
+  $.ajax({
+    method: 'POST',
+    url: 'sessions',
+    data: {
+      user:{
+        username: username,
+        password: password
+      }
+    },
+    dataType: 'json',
+    success: function(response){
+      console.log("cookie added / session added");
+    },
+    error: function(response){
+      console.lof("error creating session");
     }
+  })
 };
-
-
 
 var profile = new Profile();
 
-$('#new_user_form').submit(function(){
+$('form').submit(function(){
   event.preventDefault();
-})
+});
 
 $('#submit_new_user').click(function(){
-  profile.name = $('#name').val();
-  profile.username = $('#username').val();
-  profile.email = $('#email').val();
-  profile.password = $('#password').val();
-  profile.createUser(profile.name,profile.username,profile.email,profile.password);
-  profile.signUp(profile.user);
-})
+  var newName = $('#name').val();
+  var newUsername = $('#username').val();
+  var newEmail = $('#email').val();
+  var newPassword = $('#password').val();
+  profile.signUp(newName,newUsername,newEmail,newPassword);
+});
+
+$('#sign_in_user').click(function(){
+  var usernameSignIn = $('#username_signin').val();
+  var passwordSignIn = $('#password_signin').val();
+  profile.signIn(usernameSignIn,passwordSignIn);
+});
 
 })

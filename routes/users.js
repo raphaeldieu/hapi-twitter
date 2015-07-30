@@ -1,6 +1,6 @@
 var Bcrypt = require('bcrypt');
 var Joi = require('joi');
-
+var Auth = require('./auth');
 
 
 //Defining the plugin
@@ -65,17 +65,26 @@ exports.register = function(server, options, next){
       method: 'GET',
       path:'/users',
       handler: function(request,reply){
-        var db = request.server.plugins['hapi-mongodb'].db; //connect with the database
+        var callback = function(result){
+          if (result.authenticated){
+            var db = request.server.plugins['hapi-mongodb'].db; //connect with the database
         
-        db.collection('users').find().toArray(function(err, users){
+            db.collection('users').find().toArray(function(err, users){
           
-          if (err) { return reply('Internal MongoDB error', err); }
+              if (err) { return reply('Internal MongoDB error', err); }
           
-          reply(users);
-        });
-      }
-    }//end GET method.
 
+              reply(users);
+            });
+          }
+          else{
+            reply(result);
+          }
+        };//end callback
+          
+        Auth.authenticated(request, callback);
+      }//end handler GET
+    }//end GET method.
   ]);//end server.route
 
   next(); //DO NOT FORGET THIS
